@@ -9,3 +9,8 @@ Usage
 ------
 
 python3 pereader.py <filepath/file.exe>
+
+Docs
+----
+
+* [Awesome PE explained image](https://i.imgur.com/tnUca.jpg)
