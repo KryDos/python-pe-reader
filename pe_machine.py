@@ -1,9 +1,6 @@
 from helper import *
 
 class PeMachine():
-    POINTER_TO_MACHINE_ADDR = int('0x3c', 16)
-    SIZE_OF_PE_SIGNATURE = 4
-
     MACHINE_TYPES = {
         "0000": "Any",
         "01d3": "Matsushita AM33",
@@ -31,18 +28,3 @@ class PeMachine():
         "1c2": "Thumb",
         "0169": "MIPS little-endian WCE v2"
     }
-
-    def __init__(self, file):
-        self.file = file
-
-    def getMachineAddrPointer(self):
-        self.file.seek(self.POINTER_TO_MACHINE_ADDR)
-        addr_bytes = self.file.read(2)
-        return sum(addr_bytes)
-
-    def getValue(self):
-        machine_addr_ptr = self.getMachineAddrPointer()
-        self.file.seek(machine_addr_ptr + self.SIZE_OF_PE_SIGNATURE) # skip PE signature
-        machine_type_bytes = self.file.read(2)
-
-        return self.MACHINE_TYPES[bths_ex(machine_type_bytes)]

@@ -14,3 +14,8 @@ Docs
 ----
 
 * [Awesome PE explained image](https://i.imgur.com/tnUca.jpg)
+
+In Progress
+-----------
+
+Trying to get Characteristics from PE header
