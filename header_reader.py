@@ -18,9 +18,9 @@ class HeaderReader():
     def getMachineTypeId(self):
         OFFSET = 0
         self.file.seek(self.pe_start + OFFSET);
-        signature = self.file.read(2);
+        signature, = struct.unpack('h', self.file.read(2));
 
-        return bths_ex(signature);
+        return signature;
 
     def getMachineName(self):
         return PeMachine.MACHINE_TYPES[self.getMachineTypeId()]
@@ -28,8 +28,8 @@ class HeaderReader():
     def getNumberOfSections(self):
         OFFSET = 2
         self.file.seek(self.pe_start + OFFSET);
-        number_of_sections = self.file.read(2);
-        return str(int(bths_ex(number_of_sections), 16))
+        number_of_sections, = struct.unpack('h', self.file.read(2));
+        return str(number_of_sections)
 
     def getCharacteristics(self):
         OFFSET = 18
