@@ -1,3 +1,4 @@
+TESTFILE=$(CURDIR)/testfiles/testfile.exe
 .PHONY: run
 run:
-	python3 pereader.py /c/Users/furyi/Downloads/crakmeeasy/crakmeeasy/crakmeeasy.exe
+	python3 pereader.py $(TESTFILE)
