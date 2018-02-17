@@ -1,8 +1,9 @@
 from helper import *
 from pe_machine import PeMachine
+import struct
 
 class HeaderReader():
-    ADDR_OF_PE_HEADER_POINTER = int('0x3c', 16)
+    ADDR_OF_PE_HEADER_POINTER = 0x3c
     PE_SIGNATURE_SIZE = 4;
 
     def __init__(self, file):
@@ -11,7 +12,8 @@ class HeaderReader():
 
     def findAndSetPeHeaderLocation(self):
         self.file.seek(self.ADDR_OF_PE_HEADER_POINTER)
-        self.pe_start = sum(self.file.read(2)) + self.PE_SIGNATURE_SIZE
+        self.pe_start, = struct.unpack('h', self.file.read(2))
+        self.pe_start = self.pe_start + self.PE_SIGNATURE_SIZE # pad pe from signature to actual header
 
     def getMachineTypeId(self):
         OFFSET = 0
@@ -33,12 +35,15 @@ class HeaderReader():
         OFFSET = 18
         flags = []
         self.file.seek(self.pe_start + OFFSET)
-        the_ch_header = sum(self.file.read(2))
+        bytes = self.file.read(2)
+        the_ch_header, = struct.unpack('h', bytes)
 
-        if ((the_ch_header & int('0x0002', 16)) == 0):
-            if ((the_ch_header & int('0x2000', 16)) == 0):
+        if ((the_ch_header & 0x0002)):
+            if ((the_ch_header & 0x2000)):
                 flags.append('DLL')
-            elif ((the_ch_header & int('0x1000')) == 0):
+            elif ((the_ch_header & 0x0020)):
+                flags.append('Can handle > 2GB addresses')
+            elif ((the_ch_header & 0x1000)):
                 flags.append('System file/Driver')
             else:
                 flags.append('Executable')
