@@ -1,5 +1,5 @@
 import struct
-from helper import *
+from lib.helper import *
 
 class OptionalHeaderReader():
     def __init__(self, file, header_start_addr):

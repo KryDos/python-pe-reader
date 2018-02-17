@@ -1,5 +1,5 @@
-from helper import *
-from pe_machine import PeMachine
+from lib.helper import *
+from lib.pe_machine import PeMachine
 import struct
 
 class HeaderReader():

@@ -1,7 +1,6 @@
 import sys
-from pe_machine import PeMachine
-from header_reader import HeaderReader
-from optional_header_reader import OptionalHeaderReader
+from lib.header_reader import HeaderReader
+from lib.optional_header_reader import OptionalHeaderReader
 
 class PeReader():
     OPTIONAL_HEADER_OFFSET = 20
@@ -25,7 +24,7 @@ class PeReader():
         print("\n")
         print('------- PE Header --------')
         print("PE header starts at:\t" + str(hex(self.headersReader.pe_start)))
-        print("Machine Type:\t" + self.headersReader.getMachineName())
+        print("Machine Type:\t\t" + self.headersReader.getMachineName())
         print("Number of sections:\t" + self.headersReader.getNumberOfSections())
         print("Characteristics:\t" + self.headersReader.getCharacteristics())
 

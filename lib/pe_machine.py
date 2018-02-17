@@ -1,5 +1,3 @@
-from helper import *
-
 class PeMachine():
     MACHINE_TYPES = {
         0x0000: "Any",

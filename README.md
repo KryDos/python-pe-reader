@@ -15,7 +15,18 @@ Docs
 
 * [Awesome PE explained image](https://i.imgur.com/tnUca.jpg)
 
+Fetched (printed) data
+-----------
+
+* PE header address
+* Machine Type
+* Number of sections
+* Characteristics
+* Compiled for (32/64 bits)
+* Entry Point
+
 In Progress
 -----------
 
-Trying to get Characteristics from PE header
+* Get more data from Optional Header
+* Print sections
