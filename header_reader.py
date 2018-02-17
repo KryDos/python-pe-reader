@@ -9,6 +9,7 @@ class HeaderReader():
     def __init__(self, file):
         self.file = file
         self.pe_start = 0
+        self.is_executable = False
 
     def findAndSetPeHeaderLocation(self):
         self.file.seek(self.ADDR_OF_PE_HEADER_POINTER)
@@ -46,6 +47,7 @@ class HeaderReader():
             elif ((the_ch_header & 0x1000)):
                 flags.append('System file/Driver')
             else:
+                self.is_executable = True
                 flags.append('Executable')
         else:
             return 'not valid executable'
