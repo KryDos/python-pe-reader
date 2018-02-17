@@ -12,6 +12,7 @@ class PeReader():
         self.file.close()
 
     def printInfo(self):
+        print("PE header starts at:\t" + str(hex(self.headersReader.pe_start)))
         print("Machine Type:\t" + self.headersReader.getMachineName())
         print("Number of sections:\t" + self.headersReader.getNumberOfSections())
         print("Characteristics:\t" + self.headersReader.getCharacteristics())
