@@ -14,6 +14,7 @@ Docs
 ----
 
 * [Awesome PE explained image](https://i.imgur.com/tnUca.jpg)
+* [Official Doc on MSDN](https://msdn.microsoft.com/ru-ru/library/windows/desktop/ms680547(v=vs.85).aspx)
 
 Fetched (printed) data
 -----------
