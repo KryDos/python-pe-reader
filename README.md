@@ -30,3 +30,9 @@ In Progress
 
 * Get more data from Optional Header
 * Print sections
+
+Goals
+-----
+
+* Get better understanding of PE file format
+* Get better understanding of Python. How packaging works and how to publish the app
