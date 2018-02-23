@@ -18,6 +18,7 @@ class PeReader():
         print("\n")
         print('------- Optional Header --------')
         print("Compiled for:\t" + self.optionalHeadersReader.getMagic())
+        print("Image Base:\t" + self.optionalHeadersReader.getImageBase())
         print("Entry Point:\t" + self.optionalHeadersReader.getEntryPoint())
 
     def printPeHeader(self):
