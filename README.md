@@ -10,6 +10,10 @@ Usage
 
 python3 pereader.py <filepath/file.exe>
 
+Screenshot
+----------
+![screen](./screen.png)
+
 Docs
 ----
 
